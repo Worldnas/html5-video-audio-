@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>take screen shot</title>
+</head>
+
+<body>
+	<video controls width="500" height="500" id="v">
+		<source src="animation.mp4" type="video/mp4">
+	</video>
+	<canvas id="c"></canvas>
+	<button id="snap" onClick="snap()">take screenshot</button>
+	<script>
+		var video=document.getElementById("v");
+		var canvas=document.getElementById("c");
+		var context= canvas.getContext('2d');
+		var w, h, ratio;
+		video.addEventListener("play" , function() {
+			ratio = video.videoWidth / video.videoHeight;
+			w = video.videoWidth - 100;
+			h = parseInt(w / ratio,10);
+			canvas.width = w;
+			canvas.height = h;
+		});
+		function snap(){
+			context.fillRect(0, 0, w, h)
+			context.drawImage(video, 0, 0, w, h);
+		}
+		
+	</script>
+</body>
+</html>

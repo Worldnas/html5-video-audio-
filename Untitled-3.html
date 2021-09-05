@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>big&small</title>
+</head>
+
+<body>
+	<div style="text-align:center ">
+		<button onClick="playpause()">play/pause</button>
+		<button onClick="makebig()">big</button>
+		<button onClick="makenormal()">normal</button>
+		<button onClick="makesmall()">small</button><br>
+		<video id="my video" poster="" width="500" controls>
+			<source src="animation.mp4" type="video/mp4">
+		</video>
+	</div>
+	<script>
+		var video = document.getElementById("my video")
+		function playpause(){
+			if(video.paused)
+			video.play();
+			else
+				video.pause()
+		}
+		function makebig(){
+			video.width= 600;
+		}
+		function makenormal(){
+			video.width = 500;
+		}
+		function makesmall(){
+			video.width = 400;
+		}
+	</script>
+</body>
+</html>
